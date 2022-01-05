@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './index.css';
 function Hello() {
     return (
-      <div className="container">
+      <div className="hello-top-container">
         <div className="hello-container">
           <h1 className="hello-title">Hello Driver</h1>
           <p className="hello-content">
