@@ -1,13 +1,14 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import keys from './config';
 const firebaseConfig = {
-    apiKey: "AIzaSyBGlZQ_bTQM0qFLoiEnXC9GqWukj84upNY",
-    authDomain: "f-auths.firebaseapp.com",
-    projectId: "f-auths",
-    storageBucket: "f-auths.appspot.com",
-    messagingSenderId: "432882586802",
-    appId: "1:432882586802:web:7fb208d768d4aba08da5ab"
+    apiKey: keys.api_key,
+    authDomain: keys.auth_domain,
+    projectId: keys.project_ıd,
+    storageBucket: keys.storage_bucket,
+    messagingSenderId: keys.messaging_SenderId,
+    appId: keys.app_ıd
   };
 const app = initializeApp(firebaseConfig);
 const db= getFirestore(app);
