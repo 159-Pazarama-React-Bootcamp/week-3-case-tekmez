@@ -1,6 +1,6 @@
 import { signInWithPopup } from "firebase/auth";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { googleAuth, googleProvider } from "../../api/firebase";
 import Ficon from "./icons/ficon";
 import Gicon from "./icons/gIcon"
@@ -31,7 +31,7 @@ function Button(props){
 
     return(
         <div>
-            <Link to='store'><button className="sign-btn">{label}</button></Link>
+            <button className="sign-btn">{label}</button>
             {label === 'Sign in' && (
             <div className="connect-field">
                 <p className="continue-text">or continue with</p>
