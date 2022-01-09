@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { googleAuth, googleProvider } from "../../api/firebase";
+import { auth, googleProvider } from "../../api/firebase";
 import Ficon from "./icons/ficon";
 import Gicon from "./icons/gIcon"
 import HubIcon from "./icons/hubIcon";
@@ -11,7 +11,7 @@ function Button(props){
     const {label} = props;
     const navigate = useNavigate()
     const googleLogin = () => {
-        signInWithPopup(googleAuth, googleProvider).then(() => {
+        signInWithPopup(auth, googleProvider).then(() => {
             if(user != null){
                 navigate('store');
             }
@@ -19,7 +19,7 @@ function Button(props){
     }
     const [user, setUser] = useState(null);
     useEffect(() => {
-        googleAuth.onAuthStateChanged(authUser => {
+        auth.onAuthStateChanged(authUser => {
             if(authUser){
                 setUser(authUser);
             }
