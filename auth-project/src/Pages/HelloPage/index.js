@@ -16,7 +16,7 @@ function Hello() {
           <Link to='login'><button className="hello-btn">Find Your BMW</button></Link>
         </div>
         <div className="hello-img">
-          <img src={require("./bmw.png")} alt="bmw" />
+          <img src={require("./helloBmw.png")} alt="bmw" />
         </div>
       </div>
     );

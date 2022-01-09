@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider } from "../../api/firebase";
+import { auth, googleProvider } from "../../../config/firebase" 
 import Ficon from "./icons/ficon";
 import Gicon from "./icons/gIcon"
 import HubIcon from "./icons/hubIcon";
@@ -13,7 +13,7 @@ function Button(props){
     const googleLogin = () => {
         signInWithPopup(auth, googleProvider).then(() => {
             if(user != null){
-                navigate('store');
+                navigate('/store');
             }
         })
     }
