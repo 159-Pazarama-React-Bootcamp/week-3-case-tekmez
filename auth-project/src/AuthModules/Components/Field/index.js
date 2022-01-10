@@ -11,7 +11,7 @@ function Field(props){
     return(
         <div className="field-top-container">
             <span className="left-label">{label}</span>
-            <input className="field-input" type={passwordShow ? "password" : "text"} placeholder={placeholder}/>
+            <input className="field-input" type={type} placeholder={placeholder}/>
             {type === 'password' && (<i className="icon" onClick={showPassword}><Icon/></i>)}
             {type === 'password' && <span className="bottom-label"> Forgot Password</span>}
         </div>

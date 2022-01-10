@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider } from "../../../config/firebase" 
+import { auth, googleProvider, githubProvider, facebookProvider } from "../../../config/firebase" 
 import Ficon from "./icons/ficon";
 import Gicon from "./icons/gIcon"
 import HubIcon from "./icons/hubIcon";
@@ -10,22 +10,35 @@ import './index.css';
 function Button(props){
     const {label} = props;
     const navigate = useNavigate()
+    // Firstly in user is empty
+    const [user, setUser] = useState(null);
+    // İf the user login navigate store page
+    const checkUser = (user) => {
+        if(user != null)
+            navigate('/store');
+    }
+    // User login methods
     const googleLogin = () => {
         signInWithPopup(auth, googleProvider).then(() => {
-            if(user != null){
-                navigate('/store');
-            }
+            checkUser(user);
         })
     }
-    const [user, setUser] = useState(null);
+    const githubLogin = () => {
+        signInWithPopup(auth, githubProvider).then(() => {
+            checkUser(user);
+        })
+    }
+    const facebookLogin = () => {
+        signInWithPopup(auth, facebookProvider).then(() => {
+            checkUser(user);
+        })
+    }
     useEffect(() => {
         auth.onAuthStateChanged(authUser => {
-            if(authUser){
+            if(authUser)
                 setUser(authUser);
-            }
-            else{
+            else
                 setUser(null);
-            }
         })
     }, [])
 
@@ -37,8 +50,8 @@ function Button(props){
                 <p className="continue-text">or continue with</p>
                     <div className="connect-btn">
                             <button onClick={googleLogin} className="icon-btn"><i><Gicon/></i></button>
-                            <button className="icon-btn"><i><HubIcon/></i></button>
-                            <button className="icon-btn"><i><Ficon/></i></button>
+                            <button onClick={githubLogin} className="icon-btn"><i><HubIcon/></i></button>
+                            <button onClick={facebookLogin} className="icon-btn"><i><Ficon/></i></button>
                     </div>
             </div>
             )}
