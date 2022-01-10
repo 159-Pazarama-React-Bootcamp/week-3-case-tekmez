@@ -1,9 +1,13 @@
 import React from 'react';
+import Card from './components/Card';
 import './index.css';
 function Store(){
     return(
-        <div>
-            <h1>Store page</h1>
+        <div className='store-top-container'>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
         </div>
     );
 }
